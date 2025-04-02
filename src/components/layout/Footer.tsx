@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Facebook, Instagram, Linkedin, Mail, Phone } from 'lucide-react';
@@ -79,7 +78,29 @@ const Footer: React.FC = () => {
           </div>
         </div>
 
-        <div className="mt-10 pt-6 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center">
+        <div className="mt-8 pt-6 border-t border-gray-200">
+          <div className="mb-4">
+            <p className="text-sm text-muted-foreground">
+              Проект реализован при поддержке гранта Фонда содействия инновациям, предоставленного в рамках программы 
+              «Студенческий стартап» федерального проекта «Платформа университетского технологического предпринимательства».
+            </p>
+          </div>
+
+          <div className="flex flex-wrap gap-6 mb-6 items-center">
+            <img 
+              src="https://i.ibb.co/6YbhLq0/fond-logo.png" 
+              alt="Логотип Фонда содействия инновациям" 
+              className="h-12 object-contain"
+            />
+            <img 
+              src="https://i.ibb.co/9yCzXRk/putp-logo.png" 
+              alt="Логотип федерального проекта" 
+              className="h-12 object-contain"
+            />
+          </div>
+        </div>
+
+        <div className="mt-4 pt-6 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm text-muted-foreground">
             © {currentYear} Organization. Все права защищены.
           </p>
