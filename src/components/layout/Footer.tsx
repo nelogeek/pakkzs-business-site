@@ -3,6 +3,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Facebook, Instagram, Linkedin, Mail, Phone } from 'lucide-react';
 
+import logo from '../../images/fond.png';
+
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
@@ -12,10 +14,11 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           <div>
             <Link to="/" className="flex items-center mb-4">
-              <div className="w-10 h-10 rounded-md bg-primary flex items-center justify-center">
+              {/* <div className="w-10 h-10 rounded-md bg-primary flex items-center justify-center">
                 <span className="text-white font-semibold">O</span>
-              </div>
-              <span className="ml-2 text-lg font-medium">Organization</span>
+              </div> */}
+              {/* ml-2 */}
+              <span className=" text-lg font-medium">ООО «Романс»</span>
             </Link>
             <p className="text-muted-foreground">
               Современные профессиональные решения для вашего бизнеса.
@@ -58,14 +61,14 @@ const Footer: React.FC = () => {
             <ul className="space-y-3">
               <li className="flex items-center gap-2">
                 <Phone size={18} className="text-primary" />
-                <span className="text-muted-foreground">+7 (XXX) XXX-XX-XX</span>
+                <span className="text-muted-foreground">+7 (919) 949-76-96</span>
               </li>
               <li className="flex items-center gap-2">
                 <Mail size={18} className="text-primary" />
-                <span className="text-muted-foreground">info@organization.com</span>
+                <span className="text-muted-foreground">jager20141@gmail.com</span>
               </li>
             </ul>
-            <div className="mt-4 flex items-center gap-4">
+            {/* <div className="mt-4 flex items-center gap-4">
               <a href="#" aria-label="Facebook" className="text-muted-foreground hover:text-primary transition-colors">
                 <Facebook size={20} />
               </a>
@@ -75,16 +78,21 @@ const Footer: React.FC = () => {
               <a href="#" aria-label="LinkedIn" className="text-muted-foreground hover:text-primary transition-colors">
                 <Linkedin size={20} />
               </a>
-            </div>
+            </div> */}
           </div>
         </div>
-
+        <div className="mt-10 pt-6 border-t border-gray-200 flex flex-col md:flex-row items-center gap-4">
+          <img src={logo} alt="Logo" className="h-12 w-auto" />
+          <p className="text-sm text-muted-foreground text-center md:text-left">
+            Работа выполнена при поддержке гранта Фонда содействия инновациям, предоставленного в рамках программы «Студенческий стартап» федерального проекта «Платформа университетского технологического предпринимательства».
+          </p>
+        </div>
         <div className="mt-10 pt-6 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm text-muted-foreground">
-            © {currentYear} Organization. Все права защищены.
+            Copyright © {currentYear}. ООО «Романс». Все права защищены.
           </p>
           <p className="text-sm text-muted-foreground mt-2 md:mt-0">
-            Разработано <a href="#" className="text-primary hover:underline">Lovable</a>
+            {/* Разработано <a href="#" className="text-primary hover:underline">Lovable</a> */}
           </p>
         </div>
       </div>

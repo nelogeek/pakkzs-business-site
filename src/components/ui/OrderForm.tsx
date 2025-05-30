@@ -22,20 +22,64 @@ const OrderForm: React.FC = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate API call
-    setTimeout(() => {
-      setIsSubmitting(false);
+    // Массив с темами
+    const orderDetailsHTML = `
+      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e0e0e0; border-radius: 8px; background-color: #f9f9f9;">
+        <h2 style="color: #2c3e50;">Новая заявка с сайта</h2>
+        <table style="width: 100%; font-size: 16px; color: #333;">
+          <tr>
+            <td style="padding: 8px 0;"><strong>Фамилия:</strong></td>
+            <td style="padding: 8px 0;">${formData.lastName}</td>
+          </tr>
+          <tr>
+            <td style="padding: 8px 0;"><strong>Имя:</strong></td>
+            <td style="padding: 8px 0;">${formData.firstName}</td>
+          </tr>
+          <tr>
+            <td style="padding: 8px 0;"><strong>Отчество:</strong></td>
+            <td style="padding: 8px 0;">${formData.middleName}</td>
+          </tr>
+          <tr>
+            <td style="padding: 8px 0;"><strong>Email:</strong></td>
+            <td style="padding: 8px 0;">${formData.email}</td>
+          </tr>
+          <tr>
+            <td style="padding: 8px 0;"><strong>Телефон:</strong></td>
+            <td style="padding: 8px 0;">${formData.phone}</td>
+          </tr>
+          <tr>
+            <td style="padding: 8px 0;"><strong>Примечание:</strong></td>
+            <td style="padding: 8px 0;">${formData.notes.replace(/\n/g, '<br/>')}</td>
+          </tr>
+        </table>
+      </div>
+    `;
+
+    try {
+      const response = await fetch('http://localhost:5544/api/Email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          subject: 'Новая заявка с сайта',
+          topic: 'Заявка на заказ',
+          body: orderDetailsHTML
+        })
+      });
+
+      if (!response.ok) throw new Error(`Ошибка: ${response.status}`);
+
       setSuccess(true);
       toast({
         title: "Заявка отправлена",
         description: "Ваша заявка успешно отправлена. Мы свяжемся с вами в ближайшее время.",
       });
 
-      // Reset form after 3 seconds
       setTimeout(() => {
         setFormData({
           firstName: '',
@@ -47,7 +91,16 @@ const OrderForm: React.FC = () => {
         });
         setSuccess(false);
       }, 3000);
-    }, 1500);
+    } catch (error: any) {
+      toast({
+        title: "Ошибка",
+        description: "Не удалось отправить заявку. Попробуйте позже.",
+        variant: "destructive",
+      });
+      console.error('Ошибка при отправке заявки:', error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (success) {

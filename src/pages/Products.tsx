@@ -5,51 +5,41 @@ import AnimatedSection from '@/components/ui/AnimatedSection';
 import Button from '@/components/shared/Button';
 import { Link } from 'react-router-dom';
 import { Check } from 'lucide-react';
+import { Arrow } from '@radix-ui/react-tooltip';
 
 const Products = () => {
   const products = [
     {
       id: 1,
-      name: 'Продукт А',
-      description: 'Инновационное решение для автоматизации бизнес-процессов.',
-      image: 'https://images.unsplash.com/photo-1581092921461-fd3e4b7be3c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80',
+      name: 'Автоматизированный программный комплекс контроля закалочной среды',
+      description: 'Автоматизированный программный комплекс контроля закалочной среды – передовое техническое решение, снижающее риск возникновения дефектов в металлических изделиях после термической обработки. Программно-аппаратный комплекс обеспечивает автоматизированный мониторинг качества закалочной среды ПК-М и оповещает оператора о необходимости восстановления её свойств.',
+      image: 'https://avatars.mds.yandex.net/i?id=1c898cb222ee3447d55f56ad4dde76dfb0558a69-4643362-images-thumbs&n=13',
       features: [
-        'Легкая интеграция с существующими системами',
-        'Интуитивно понятный интерфейс',
-        'Высокая производительность',
-        'Масштабируемость'
+        'Измерение температуры закалочной среды ПК-М',
+        'Измерение показателя преломления закалочной среды ПК-М',
+        'Оповещение об отклонении показателей преломления и температуры от требуемой нормы',
+        'Рекомендации для устранения нарушений состояния закалочной среды ПК-М',
+        'Не требует вывода закалочной ванны из тех. процесса во время измерений'
       ],
+      specifications: [
+        'Автоматическое измерение',
+        'Автоматическое оповещение об отклонении',
+        'Автоматические рекомендации',
+        'Точность измерения температуры ±0,01℃',
+        'Точность измерения показателя преломления ±0,0001',
+        'Скорость измерения показателей преломления и температуры 1 минута'
+      ],
+      services: [
+        'Модернизация закалочной ванны заказчика датчиками температуры, рефрактометром и программно-логистическим контроллером',
+        'Установка программного обеспечения для функционирования комплекса контроля закалочной среды',
+        'Обслуживание комплекса',
+        'Обслуживание программного обеспечения комплекса'
+      ],
+      product: 'Программное обеспечение комплекса контроля закалочной среды',
       benefits: 'Сокращение времени на выполнение рутинных задач до 50%, повышение эффективности работы сотрудников, снижение количества ошибок.',
-      videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ'
+      videoUrl: ''
     },
-    {
-      id: 2,
-      name: 'Продукт Б',
-      description: 'Комплексное решение для анализа данных и бизнес-аналитики.',
-      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1715&q=80',
-      features: [
-        'Продвинутые алгоритмы анализа данных',
-        'Визуализация результатов в реальном времени',
-        'Настраиваемые отчеты',
-        'Поддержка больших объемов данных'
-      ],
-      benefits: 'Глубокое понимание бизнес-процессов, выявление скрытых закономерностей, принятие обоснованных управленческих решений.',
-      videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ'
-    },
-    {
-      id: 3,
-      name: 'Продукт В',
-      description: 'Безопасное решение для хранения и обмена данными.',
-      image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80',
-      features: [
-        'Шифрование данных на всех этапах',
-        'Гибкие настройки прав доступа',
-        'Автоматическое резервное копирование',
-        'Защита от несанкционированного доступа'
-      ],
-      benefits: 'Обеспечение конфиденциальности информации, соответствие требованиям законодательства о защите данных, минимизация рисков утечки информации.',
-      videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ'
-    }
+
   ];
 
   return (
@@ -77,17 +67,17 @@ const Products = () => {
           <AnimatedSection key={product.id} delay={index * 100} className="glass-panel rounded-lg overflow-hidden">
             <div className="flex flex-col lg:flex-row">
               <div className="lg:w-1/2">
-                <img 
-                  src={product.image} 
-                  alt={product.name} 
-                  className="w-full h-64 lg:h-full object-cover" 
+                <img
+                  src={product.image}
+                  alt={product.name}
+                  className="w-full h-64 lg:h-full object-cover"
                 />
               </div>
               <div className="lg:w-1/2 p-6 md:p-8">
                 <h2 className="text-2xl font-medium mb-3">{product.name}</h2>
                 <p className="text-muted-foreground mb-6">{product.description}</p>
-                
-                <h3 className="text-lg font-medium mb-3">Основные характеристики:</h3>
+
+                <h3 className="text-lg font-medium mb-3">Возможности комплекса:</h3>
                 <ul className="space-y-2 mb-6">
                   {product.features.map((feature, i) => (
                     <li key={i} className="flex items-start">
@@ -96,10 +86,30 @@ const Products = () => {
                     </li>
                   ))}
                 </ul>
-                
-                <h3 className="text-lg font-medium mb-3">Преимущества:</h3>
-                <p className="text-muted-foreground mb-6">{product.benefits}</p>
-                
+
+                <h3 className="text-lg font-medium mb-3">Характеристики комплекса:</h3>
+                <ul className="space-y-2 mb-6">
+                  {product.specifications.map((specification, i) => (
+                    <li key={i} className="flex items-start">
+                      <span className="h-5 w-5 text-primary mr-2 mt-0.5 ml-1.5" >•</span>
+                      <span>{specification}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <h3 className="text-lg font-medium mb-3">Предоставляемые услуги:</h3>
+                <ul className="space-y-2 mb-6">
+                  {product.services.map((service, i) => (
+                    <li key={i} className="flex items-start">
+                      <span className="h-5 w-5 text-primary mr-2 mt-0.5" >—</span>
+                      <span>{service}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <h3 className="text-lg font-medium mb-3">Продукт:</h3>
+                <p className="text-muted-foreground mb-6">{product.product}</p>
+
                 <Link to="/order">
                   <Button className="w-full sm:w-auto">
                     Оформить заказ
@@ -107,18 +117,21 @@ const Products = () => {
                 </Link>
               </div>
             </div>
-            <div className="p-6 md:p-8 border-t">
-              <h3 className="text-lg font-medium mb-4">Видео о продукте</h3>
-              <div className="aspect-w-16 aspect-h-9">
-                <iframe 
-                  src={product.videoUrl} 
-                  title={`Видео о продукте ${product.name}`}
-                  className="w-full h-[300px] rounded-md"
-                  allowFullScreen
-                  loading="lazy"
-                ></iframe>
+
+            {product.videoUrl && (
+              <div className="p-6 md:p-8 border-t">
+                <h3 className="text-lg font-medium mb-4">Видео о продукте</h3>
+                <div className="aspect-w-16 aspect-h-9">
+                  <iframe
+                    src={product.videoUrl}
+                    title={`Видео о продукте ${product.name}`}
+                    className="w-full h-[300px] rounded-md"
+                    allowFullScreen
+                    loading="lazy"
+                  ></iframe>
+                </div>
               </div>
-            </div>
+            )}
           </AnimatedSection>
         ))}
       </div>

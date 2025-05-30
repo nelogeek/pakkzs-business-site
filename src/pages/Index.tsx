@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Layout from '@/components/layout/Layout';
 import AnimatedSection from '@/components/ui/AnimatedSection';
@@ -35,19 +34,18 @@ const Index = () => {
       {/* Hero Section */}
       <section className="relative mb-16">
         <div className="relative rounded-xl overflow-hidden bg-gradient-to-r from-primary/80 to-primary h-[400px] flex items-center">
-          <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80')] bg-cover bg-center mix-blend-overlay"></div>
           <div className="relative z-10 p-8 md:p-12 max-w-2xl">
             <AnimatedSection>
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-light text-white mb-4">
-                Инновационные решения для вашего бизнеса
+                Автоматизированный комплекс контроля закалочной среды
               </h1>
               <p className="text-white/90 mb-8 text-lg">
-                Мы помогаем компаниям развиваться и достигать новых высот благодаря современным технологиям и профессиональному подходу.
+                Сократите количество бракованной металлопродукции после термической обработки до рекордных 0,5%
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link to="/products">
-                  <Button 
-                    variant="secondary" 
+                  <Button
+                    variant="secondary"
                     size="lg"
                     className="flex items-center gap-2"
                   >
@@ -56,8 +54,8 @@ const Index = () => {
                   </Button>
                 </Link>
                 <Link to="/contact">
-                  <Button 
-                    variant="outline" 
+                  <Button
+                    variant="outline"
                     size="lg"
                     className="bg-transparent border-white text-white hover:bg-white/10"
                   >
@@ -67,6 +65,14 @@ const Index = () => {
               </div>
             </AnimatedSection>
           </div>
+          <div className="hidden md:block w-1/2 h-full relative">
+            <img
+              src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80"
+              alt="Business Solutions"
+              className="h-full w-full object-cover"
+            />
+            <div className="absolute inset-0 bg-blue-900/50"></div> {/* Темно-синий слой */}
+          </div>
         </div>
       </section>
 
@@ -75,13 +81,7 @@ const Index = () => {
         <h2 className="section-title">История компании</h2>
         <div className="glass-panel rounded-lg p-6 md:p-8">
           <p className="mb-4">
-            Наша компания была основана в 2010 году группой специалистов, объединенных общей идеей создания инновационных продуктов, которые помогут бизнесу развиваться и достигать новых высот. С самого начала мы поставили перед собой амбициозную цель — стать лидером в своей отрасли, предлагая клиентам передовые решения высочайшего качества.
-          </p>
-          <p className="mb-4">
-            Первые годы работы были посвящены исследованиям и разработке нашей продукции. Мы тщательно изучали рынок, анализировали потребности потенциальных клиентов и работали над созданием продуктов, которые будут не только соответствовать современным требованиям, но и превосходить ожидания пользователей.
-          </p>
-          <p>
-            За прошедшие годы наша компания значительно выросла. Мы открыли несколько офисов в разных городах, расширили ассортимент продукции и увеличили команду профессионалов. Однако, несмотря на рост и развитие, мы сохранили свои основные ценности — качество, инновации и индивидуальный подход к каждому клиенту.
+            Проект зародился, когда группа студентов инженерного факультета, интересующихся металлургией и автоматизацией производственных процессов, объединилась в научное сообщество. Руководителем группы стал опытный инженер с многолетним стажем работы в металлургической промышленности, который заметил, что существующие методы контроля закалочных сред недостаточно точны, требуют значительных временных и энергетических затрат. Получен грант на реализацию продукта от Фонда содействия инновациям, предоставленного в рамках программы «Студенческий стартап» федерального проекта «Платформа университетского технологического предпринимательства».
           </p>
         </div>
       </AnimatedSection>

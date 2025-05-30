@@ -37,10 +37,11 @@ const NavBar: React.FC = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex justify-between items-center">
           <Link to="/" className="flex items-center">
-            <div className="w-10 h-10 rounded-md bg-primary flex items-center justify-center">
+            {/* <div className="w-10 h-10 rounded-md bg-primary flex items-center justify-center">
               <span className="text-white font-semibold">O</span>
-            </div>
-            <span className="ml-2 text-lg font-medium">Organization</span>
+            </div> */}
+            {/* ml-2 */}
+            <span className=" text-lg font-medium">ООО «Романс»</span>
           </Link>
 
           {/* Desktop Navigation */}

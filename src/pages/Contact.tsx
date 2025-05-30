@@ -11,31 +11,28 @@ const Contact = () => {
       icon: <MapPin className="h-12 w-12 text-primary" />,
       title: 'Адрес',
       details: [
-        'г. Москва, ул. Примерная, д. 123',
-        'Офис 456'
+        '625000, г. Тюмень',
       ]
     },
     {
       icon: <Phone className="h-12 w-12 text-primary" />,
       title: 'Телефоны',
       details: [
-        '+7 (XXX) XXX-XX-XX - Общие вопросы',
-        '+7 (XXX) XXX-XX-XX - Техническая поддержка'
+        '+7 (919) 949-76-96'
       ]
     },
     {
       icon: <Mail className="h-12 w-12 text-primary" />,
       title: 'Email',
       details: [
-        'info@organization.com - Общие вопросы',
-        'support@organization.com - Техническая поддержка'
+        'jager20141@gmail.com'
       ]
     },
     {
       icon: <Clock className="h-12 w-12 text-primary" />,
       title: 'Режим работы',
       details: [
-        'Пн-Пт: 9:00 - 18:00',
+        'Пн-Пт: 9:00 - 19:00',
         'Сб-Вс: Выходные дни'
       ]
     }
@@ -87,7 +84,7 @@ const Contact = () => {
       </AnimatedSection>
 
       {/* Social Media */}
-      <AnimatedSection delay={200} className="mb-16">
+      {/* <AnimatedSection delay={200} className="mb-16">
         <h2 className="section-title">Мы в социальных сетях</h2>
         <div className="glass-panel rounded-lg p-6 md:p-8">
           <div className="flex flex-wrap gap-6 justify-center">
@@ -107,7 +104,7 @@ const Contact = () => {
             ))}
           </div>
         </div>
-      </AnimatedSection>
+      </AnimatedSection> */}
 
       {/* Contact Form */}
       <AnimatedSection delay={300} className="mb-16">
@@ -116,14 +113,14 @@ const Contact = () => {
       </AnimatedSection>
 
       {/* Map */}
-      <AnimatedSection delay={400}>
+      {/* <AnimatedSection delay={400}>
         <h2 className="section-title">Как нас найти</h2>
         <div className="glass-panel rounded-lg p-6 md:p-8">
           <div className="aspect-w-16 aspect-h-9">
             <iframe 
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2245.347628409876!2d37.6173!3d55.7558!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTXCsDE1JzIwLjkiTiAzN8KwMzcnMDMuOSJF!5e0!3m2!1sen!2sru!4v1635153806059!5m2!1sen!2sru" 
               width="100%" 
-              height="450" 
+              height="450"  
               style={{ border: 0 }} 
               allowFullScreen 
               loading="lazy" 
@@ -132,7 +129,7 @@ const Contact = () => {
             ></iframe>
           </div>
         </div>
-      </AnimatedSection>
+      </AnimatedSection> */}
     </Layout>
   );
 };

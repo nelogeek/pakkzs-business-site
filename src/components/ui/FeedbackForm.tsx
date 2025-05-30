@@ -20,31 +20,77 @@ const FeedbackForm: React.FC = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
+  const subjects = [
+  { value: 'general', label: 'Общие вопросы' },
+  { value: 'support', label: 'Техническая поддержка' },
+  { value: 'partnership', label: 'Сотрудничество' },
+  { value: 'other', label: 'Другое' }
+];
 
-    // Simulate API call
+  const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  setIsSubmitting(true);
+
+  const selectedSubject = subjects.find(subject => subject.value === formData.subject)?.label || 'Не указано';
+
+  try {
+    const response = await fetch('http://localhost:5544/api/Email', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        subject: 'Новое сообщение с формы обратной связи',
+        topic: 'Форма обратной связи',
+        body: `
+          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e0e0e0; border-radius: 8px; background-color: #f9f9f9;">
+            <h2 style="color: #2c3e50;">Новое сообщение с сайта</h2>
+            <table style="width: 100%; font-size: 16px; color: #333;">
+              <tr>
+                <td style="padding: 8px 0;"><strong>Имя:</strong></td>
+                <td style="padding: 8px 0;">${formData.name}</td>
+              </tr>
+              <tr>
+                <td style="padding: 8px 0;"><strong>Email:</strong></td>
+                <td style="padding: 8px 0;">${formData.email}</td>
+              </tr>
+              <tr>
+                <td style="padding: 8px 0;"><strong>Тема:</strong></td>
+                <td style="padding: 8px 0;">${selectedSubject}</td>
+              </tr>
+              <tr>
+                <td style="padding: 8px 0; vertical-align: top;"><strong>Сообщение:</strong></td>
+                <td style="padding: 8px 0;">${formData.message.replace(/\n/g, '<br/>')}</td>
+              </tr>
+            </table>
+          </div>
+        `
+      })
+    });
+
+    if (!response.ok) throw new Error(`Ошибка: ${response.status}`);
+
+    setSuccess(true);
+    toast({
+      title: "Форма отправлена",
+      description: "Ваше сообщение успешно отправлено. Мы ответим вам в ближайшее время.",
+    });
+
     setTimeout(() => {
-      setIsSubmitting(false);
-      setSuccess(true);
-      toast({
-        title: "Форма отправлена",
-        description: "Ваше сообщение успешно отправлено. Мы ответим вам в ближайшее время.",
-      });
-
-      // Reset form after 3 seconds
-      setTimeout(() => {
-        setFormData({
-          name: '',
-          email: '',
-          subject: '',
-          message: ''
-        });
-        setSuccess(false);
-      }, 3000);
-    }, 1500);
-  };
+      setFormData({ name: '', email: '', subject: '', message: '' });
+      setSuccess(false);
+    }, 3000);
+  } catch (error: any) {
+    toast({
+      title: "Ошибка",
+      description: "Не удалось отправить сообщение. Попробуйте позже.",
+      variant: "destructive",
+    });
+    console.error('Ошибка при отправке письма:', error);
+  } finally {
+    setIsSubmitting(false);
+  }
+};
 
   if (success) {
     return (
