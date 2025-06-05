@@ -60,7 +60,7 @@ const OrderForm: React.FC = () => {
     `;
 
     try {
-      const response = await fetch('http://localhost:5544/api/Email', {
+      const response = await fetch('https://pakkzs.nelogeek.pro/api/Email', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

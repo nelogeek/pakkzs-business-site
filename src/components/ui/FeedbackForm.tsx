@@ -34,7 +34,7 @@ const FeedbackForm: React.FC = () => {
   const selectedSubject = subjects.find(subject => subject.value === formData.subject)?.label || 'Не указано';
 
   try {
-    const response = await fetch('http://localhost:5544/api/Email', {
+    const response = await fetch('https://pakkzs.nelogeek.pro/api/Email', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
